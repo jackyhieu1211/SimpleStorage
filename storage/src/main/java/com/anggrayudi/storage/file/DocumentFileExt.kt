@@ -562,7 +562,8 @@ fun DocumentFile.canModify(context: Context) = canRead() && isWritable(context)
  * Use it, because [DocumentFile.canWrite] is unreliable on Android 10.
  * Read [this issue](https://github.com/anggrayudi/SimpleStorage/issues/24#issuecomment-830000378)
  */
-fun DocumentFile.isWritable(context: Context) = if (isRawFile) File(uri.path!!).isWritable(context) else canWrite()
+//fun DocumentFile.isWritable(context: Context) = if (isRawFile) File(uri.path!!).isWritable(context) else canWrite()
+fun DocumentFile.isWritable(context: Context) = canWrite()
 
 fun DocumentFile.isRootUriPermissionGranted(context: Context): Boolean {
     return isExternalStorageDocument && DocumentFileCompat.isStorageUriPermissionGranted(context, getStorageId(context))
