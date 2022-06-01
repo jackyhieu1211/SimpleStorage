@@ -205,7 +205,7 @@ fun DocumentFile.inDataStorage(context: Context) = isRawFile && File(uri.path!!)
  * `true` if this file was created with [File]
  */
 val DocumentFile.isRawFile: Boolean
-    get() = uri.isRawFile
+    get() = false
 
 /**
  * Filename without extension
