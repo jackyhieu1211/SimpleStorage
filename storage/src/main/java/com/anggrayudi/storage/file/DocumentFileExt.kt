@@ -654,10 +654,10 @@ fun DocumentFile.makeFile(
         }
     }
 
-    if (isRawFile) {
-        // RawDocumentFile does not avoid duplicate file name, but TreeDocumentFile does.
-        return DocumentFile.fromFile(toRawFile(context)?.makeFile(context, cleanName, mimeType, mode) ?: return null)
-    }
+//    if (isRawFile) {
+//        // RawDocumentFile does not avoid duplicate file name, but TreeDocumentFile does.
+//        return DocumentFile.fromFile(toRawFile(context)?.makeFile(context, cleanName, mimeType, mode) ?: return null)
+//    }
 
     val correctMimeType = MimeType.getMimeTypeFromExtension(extension).let {
         if (it == MimeType.UNKNOWN) MimeType.BINARY_FILE else it
@@ -683,9 +683,9 @@ fun DocumentFile.makeFolder(context: Context, name: String, mode: CreateMode = C
         return null
     }
 
-    if (isRawFile) {
-        return DocumentFile.fromFile(toRawFile(context)?.makeFolder(context, name, mode) ?: return null)
-    }
+//    if (isRawFile) {
+//        return DocumentFile.fromFile(toRawFile(context)?.makeFolder(context, name, mode) ?: return null)
+//    }
 
     // if name is "Aduhhh/Now/Dee", system will convert it to Aduhhh_Now_Dee, so create a sequence
     val directorySequence = DocumentFileCompat.getDirectorySequence(name.removeForbiddenCharsFromFilename()).toMutableList()
